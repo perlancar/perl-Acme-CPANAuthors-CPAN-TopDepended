@@ -37,7 +37,7 @@ a local mini CPAN mirror using this command:
 
 Statistics of the CPAN mirror:
 
-# COMMAND: lcpan stats-last-index-time
+# COMMAND: lcpan stats-last-index-time --format text-pretty
 
 
 =head1 SEE ALSO
