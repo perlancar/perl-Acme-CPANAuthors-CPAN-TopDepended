@@ -7,7 +7,7 @@ use strict;
 use warnings;
 
 use Acme::CPANAuthors::Register (
-# CODE: require App::lcpan::Call; require Data::Dmp; $res = App::lcpan::Call::call_lcpan_script(argv => ['authors-by-rdep-count']); die "$res->[0] - $res->[1]" unless $res->[0] == 200; for my $row (@{ $res->[2] }) { printf qq{    '%-9s' => %-40s, # %d\n}, $row->{id}, Data::Dmp::dmp($row->{name}), $row->{rdep_count} }
+# CODE: require App::lcpan::Call; require Data::Dmp; my $res = App::lcpan::Call::call_lcpan_script(argv => ['authors-by-rdep-count']); die "$res->[0] - $res->[1]" unless $res->[0] == 200; my $i = 0; for my $row (@{ $res->[2] }) { last if ++$i > 50; printf qq{   %-11s => %-40s # %6d\n}, Data::Dmp::dmp($row->{id}), Data::Dmp::dmp($row->{name}) . ",", $row->{rdep_count} }
 );
 
 1;
